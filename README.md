@@ -19,7 +19,7 @@ npm install react-native-checkbox --save
 
 ##Props:
 
-- `label` : text that will be displayed allong the checkbox
+- `label` : text that will be displayed allong the checkbox (Defaults to 'Label')
 - `labelStyle` : style object that will be applied to the label
 - `checked` : states if the checkbox is checked or not
 - `onChange` : callback function that will be called when the cheked state is changing
