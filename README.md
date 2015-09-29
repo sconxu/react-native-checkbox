@@ -2,7 +2,9 @@
 Checkbox component for React native
 
 ##Installation: 
-
+```js
+npm install react-native-checkbox --save
+```
 
 
 ##Example: 
