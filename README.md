@@ -2,6 +2,9 @@
 Checkbox component for React native
 
 ##Installation: 
+
+First you need to add `cb-disabled.png` and `cb-enabled.png` images from the repository as image assets inside your XCode project.
+
 ```js
 npm install react-native-checkbox --save
 ```
