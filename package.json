@@ -13,7 +13,10 @@
   "keywords": [
     "react-native",
     "checkbox",
-    "component"
+    "component",
+    "react-component",
+    "react-native",
+    "ios"
   ],
   "author": "Bogdan Carmanus <carmanusbogdan@gmail.com>",
   "license": "ISC",
