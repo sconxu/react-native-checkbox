@@ -1,0 +1,24 @@
+{
+  "name": "react-native-checkbox",
+  "version": "1.0.0",
+  "description": "Checkbox component for React native",
+  "main": "checkbox.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sconxu/react-native-checkbox.git"
+  },
+  "keywords": [
+    "react-native",
+    "checkbox",
+    "component"
+  ],
+  "author": "Bogdan Carmanus <carmanusbogdan@gmail.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sconxu/react-native-checkbox/issues"
+  },
+  "homepage": "https://github.com/sconxu/react-native-checkbox#readme"
+}
