@@ -14,12 +14,17 @@ npm install react-native-checkbox --save
 
 ##Example: 
 ```js
-<CheckBox label='Label' checked={true} />
+<CheckBox
+  label='Label'
+  checked={true}
+  onChange={(checked) => console.log('I am checked', checked)}
+/>
 ```
 
 ##Props:
 
-- `label` : text that will be displayed allong the checkbox
+- `label` : text that will be displayed along the checkbox
 - `labelStyle` : style object that will be applied to the label
 - `checked` : states if the checkbox is checked or not
-- `onChange` : callback function that will be called when the cheked state is changing
+- `onChange` : callback function that will be invoked when the checked state has
+changed. Is passed the checked state (boolean) as an argument.
