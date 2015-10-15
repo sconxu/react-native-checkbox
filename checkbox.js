@@ -22,6 +22,7 @@ var CheckBox = React.createClass({
   getDefaultProps() {
     return {
       label: 'Label',
+      labelBefore: false,
       checked: false
     }
   },
@@ -51,14 +52,33 @@ var CheckBox = React.createClass({
       source = require('image!cb-enabled');
     }
 
-    return (
-      <TouchableHighlight onPress={this.onChange} underlayColor='white'>
+    var container = (
+      <View style={styles.container}>
+        <Image
+          style={styles.checkbox}
+          source={source}/>
+        <View style={styles.labelContainer}>
+          <Text style={[this.props.labelStyle, styles.label]}>{this.props.label}</Text>
+        </View>
+      </View>
+    );
+
+    if (this.props.labelBefore) {
+      container = (
         <View style={styles.container}>
+          <View style={styles.labelContainer}>
+            <Text style={[this.props.labelStyle, styles.label]}>{this.props.label}</Text>
+          </View>
           <Image
             style={styles.checkbox}
             source={source}/>
-          <Text style={[this.props.labelStyle, styles.label]}>{this.props.label}</Text>
         </View>
+      );
+    }
+
+    return (
+      <TouchableHighlight onPress={this.onChange} underlayColor='white'>
+        {container}
       </TouchableHighlight>
     )
   }
@@ -74,11 +94,14 @@ var styles = StyleSheet.create({
     width: 26,
     height: 26
   },
+  labelContainer: {
+    marginLeft: 10,
+    marginRight: 10
+  },
   label: {
     fontSize: 15,
     lineHeight: 15,
     color: 'grey',
-    marginLeft: 10
   }
 });
 
