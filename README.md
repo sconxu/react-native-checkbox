@@ -14,20 +14,32 @@ npm install react-native-checkbox --save
 
 ##Example:
 ```js
+// a checkbox that is initially set to checked
 <CheckBox
   label='Label'
-  checked={true}
+  initiallyChecked={true}
   onChange={(checked) => console.log('I am checked', checked)}
+/>
+
+// a checkbox that's state is determined via prop
+<CheckBox
+  checked={this.props.stateFromParent}
+  onPress={(checked) => this.doSomethingWithNewValue(checked)}
 />
 ```
 
 ##Props:
 
 
-- `label` : text that will be displayed along the checkbox
-- `labelBefore` : position the label before the checkbox (boolean). The default
+- `label` : (String) text that will be displayed along the checkbox. The default
+value is 'Label'
+- `labelBefore` : (boolean) position the label before the checkbox. The default
 value is false
-- `labelStyle` : style object that will be applied to the label
-- `checked` : states if the checkbox is checked or not
-- `onChange` : callback function that will be invoked when the checked state has
+- `labelStyle` : (object) style object that will be applied to the label
+- `initiallyChecked` : (boolean) the intial value of the checkbox
+- `checked` : (boolean) value to set checkbox's internal state to. Overrides the component's
+internal state
+- `onChange` : (callback) callback function that will be invoked when the checked state has
 changed. Is passed the checked state (boolean) as an argument.
+- `onPress` : (callback) callback that executes when checkbox is tapped. If used this component
+cannot have any usable state and `onChange` does not execute.
