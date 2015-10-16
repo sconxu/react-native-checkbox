@@ -27,28 +27,16 @@ var CheckBox = React.createClass({
     }
   },
 
-  getInitialState() {
-    return {
-      checked: this.props.checked
-    }
-  },
-
   onChange() {
-    var checked = this.state.checked;
-
-    this.setState({
-      checked: !checked
-    }, function(){
-      if(this.props.onChange){
-        this.props.onChange(this.state.checked);
-      }
-    })
+    if(this.props.onChange){
+      this.props.onChange(!this.props.checked);
+    }
   },
 
   render() {
     var source = require('image!cb-disabled');
 
-    if(this.state.checked){
+    if(this.props.checked){
       source = require('image!cb-enabled');
     }
 

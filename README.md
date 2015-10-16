@@ -28,6 +28,5 @@ npm install react-native-checkbox --save
 - `labelBefore` : position the label before the checkbox (boolean). The default
 value is false
 - `labelStyle` : style object that will be applied to the label
-- `checked` : states if the checkbox is checked or not
-- `onChange` : callback function that will be invoked when the checked state has
-changed. Is passed the checked state (boolean) as an argument.
+- `checked` : initial checked value
+- `onChange` : callback function that will be invoked with the toggled checked property as argument.
