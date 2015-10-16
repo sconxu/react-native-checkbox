@@ -23,13 +23,13 @@ var CheckBox = React.createClass({
     return {
       label: 'Label',
       labelBefore: false,
-      checked: false
+      initiallyChecked: false
     }
   },
 
   getInitialState() {
     return {
-      checked: this.props.checked
+      checked: this.props.initiallyChecked
     }
   },
 
@@ -46,11 +46,8 @@ var CheckBox = React.createClass({
   },
 
   render() {
-    var source = require('image!cb-disabled');
-
-    if(this.state.checked){
-      source = require('image!cb-enabled');
-    }
+    var source = this.state.checked ? require('image!cb-enabled') :
+                                      require('image!cb-disabled');
 
     var container = (
       <View style={styles.container}>
@@ -77,7 +74,7 @@ var CheckBox = React.createClass({
     }
 
     return (
-      <TouchableHighlight onPress={this.onChange} underlayColor='white'>
+      <TouchableHighlight onPress={this.props.onPress || this.onChange} underlayColor='white'>
         {container}
       </TouchableHighlight>
     )
