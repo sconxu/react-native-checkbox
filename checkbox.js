@@ -34,10 +34,10 @@ var CheckBox = React.createClass({
   },
 
   render() {
-    var source = require('image!cb-disabled');
+    var source = require('image!cb_disabled');
 
     if(this.props.checked){
-      source = require('image!cb-enabled');
+      source = require('image!cb_enabled');
     }
 
     var container = (
