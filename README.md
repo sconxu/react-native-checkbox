@@ -5,7 +5,7 @@ Checkbox component for React native
 
 Install the component through npm using:
 
-```js
+```
 npm install react-native-checkbox --save
 ```
 
