@@ -46,7 +46,7 @@ var CheckBox = React.createClass({
           style={styles.checkbox}
           source={source}/>
         <View style={styles.labelContainer}>
-          <Text style={[this.props.labelStyle, styles.label]}>{this.props.label}</Text>
+          <Text style={[styles.label, this.props.labelStyle]}>{this.props.label}</Text>
         </View>
       </View>
     );
@@ -55,7 +55,7 @@ var CheckBox = React.createClass({
       container = (
         <View style={styles.container}>
           <View style={styles.labelContainer}>
-            <Text style={[this.props.labelStyle, styles.label]}>{this.props.label}</Text>
+            <Text style={[styles.label, this.props.labelStyle]}>{this.props.label}</Text>
           </View>
           <Image
             style={styles.checkbox}
