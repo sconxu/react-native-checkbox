@@ -65,7 +65,7 @@ var CheckBox = React.createClass({
     }
 
     return (
-      <TouchableHighlight onPress={this.onChange} underlayColor='white'>
+      <TouchableHighlight onPress={this.onChange}>
         {container}
       </TouchableHighlight>
     )
