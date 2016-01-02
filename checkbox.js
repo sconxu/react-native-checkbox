@@ -34,7 +34,7 @@ var CheckBox = React.createClass({
   },
 
   render() {
-    var checkImageSource = require('./check.png'),
+    var checkImageSource = this.props.checkImage || require('./check.png'),
         checkbox = (
           <View style={styles.checkbox}>
             {this.props.checked ? <Image source={checkImageSource}/>
