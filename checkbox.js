@@ -34,15 +34,11 @@ var CheckBox = React.createClass({
   },
 
   render() {
-    var source = require('./cb_disabled.png');
-
-    if(this.props.checked){
-      source = require('./cb_enabled.png');
-    }
-    
-    var checkbox = (
+    var checkImageSource = require('./check.png'),
+        checkbox = (
           <View style={styles.checkbox}>
-            <Image source={source}/>
+            {this.props.checked ? <Image source={checkImageSource}/>
+                                : null}
           </View>
         ),
         labelContainer = (
@@ -83,7 +79,10 @@ var styles = StyleSheet.create({
   },
   checkbox: {
     width: 26,
-    height: 26
+    height: 26,
+    borderWidth: 2,
+    borderRadius: 4,
+    borderColor: 'black',
   },
   labelContainer: {
     marginLeft: 10,
