@@ -39,27 +39,30 @@ var CheckBox = React.createClass({
     if(this.props.checked){
       source = require('./cb_enabled.png');
     }
+    
+    var checkbox = (
+          <View style={styles.checkbox}>
+            <Image source={source}/>
+          </View>
+        ),
+        labelContainer = (
+          <View style={styles.labelContainer}>
+            <Text style={[styles.label, this.props.labelStyle]}>{this.props.label}</Text>
+          </View>
+        );
 
     var container = (
       <View style={styles.container}>
-        <Image
-          style={styles.checkbox}
-          source={source}/>
-        <View style={styles.labelContainer}>
-          <Text style={[styles.label, this.props.labelStyle]}>{this.props.label}</Text>
-        </View>
+        {checkbox}
+        {labelContainer}
       </View>
     );
 
     if (this.props.labelBefore) {
       container = (
         <View style={styles.container}>
-          <View style={styles.labelContainer}>
-            <Text style={[styles.label, this.props.labelStyle]}>{this.props.label}</Text>
-          </View>
-          <Image
-            style={styles.checkbox}
-            source={source}/>
+          {labelContainer}
+          {checkbox}
         </View>
       );
     }
