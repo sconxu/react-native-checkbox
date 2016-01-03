@@ -37,7 +37,11 @@ var CheckBox = React.createClass({
     var checkImageSource = this.props.checkImage || require('./check.png'),
         checkbox = (
           <View style={styles.checkbox}>
-            {this.props.checked ? <Image source={checkImageSource}/>
+            {this.props.checked ? <Image 
+                                    source={checkImageSource}
+                                    resizeMode="stretch"
+                                    style={styles.checkImage}
+                                  />
                                 : null}
           </View>
         ),
@@ -71,6 +75,9 @@ var CheckBox = React.createClass({
   }
 });
 
+var checkboxBorderWidth = 2,
+    checkboxWidth = 26;
+
 var styles = StyleSheet.create({
   container: {
     flexDirection: 'row',
@@ -78,9 +85,9 @@ var styles = StyleSheet.create({
     marginBottom: 5,
   },
   checkbox: {
-    width: 26,
-    height: 26,
-    borderWidth: 2,
+    width: checkboxWidth,
+    height: checkboxWidth,
+    borderWidth: checkboxBorderWidth,
     borderRadius: 4,
     borderColor: 'black',
   },
@@ -92,7 +99,11 @@ var styles = StyleSheet.create({
     fontSize: 15,
     lineHeight: 15,
     color: 'grey',
-  }
+  },
+  checkImage: {
+    width: checkboxWidth - 2*checkboxBorderWidth,
+    height: checkboxWidth - 2*checkboxBorderWidth,
+  },
 });
 
 module.exports = CheckBox;
