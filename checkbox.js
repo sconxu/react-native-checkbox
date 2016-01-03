@@ -1,6 +1,7 @@
 'use strict';
 
 var React = require('react-native');
+var StyleSheetRegistry = require('StyleSheetRegistry');
 var PropTypes = React.PropTypes;
 
 var {
@@ -32,15 +33,39 @@ var CheckBox = React.createClass({
       this.props.onChange(!this.props.checked);
     }
   },
+  
+  /**
+   * @param styles  Anything that can be passed to the `style` prop of a
+   *                component - either a plain object, or a property of a
+   *                StyleSheet.
+   * @return {Object}  The styles as a plain object.
+   */
+  _getStylesAsObject(styles) {
+    if (typeof styles === "number") {
+      return StyleSheetRegistry.getStyleByID(styles);
+    } else {
+      return styles;
+    }
+  },
 
   render() {
     var checkImageSource = this.props.checkImage || require('./check.png'),
+        checkboxStyles = Object.assign(
+          {},
+          this._getStylesAsObject(styles.checkbox),
+          this._getStylesAsObject(this.props.style)
+        ),
+        imageWidth = checkboxStyles.width - 2*checkboxStyles.borderWidth,
+        imageHeight = checkboxStyles.height - 2*checkboxStyles.borderWidth,
         checkbox = (
-          <View style={styles.checkbox}>
+          <View style={[styles.checkbox, this.props.style]}>
             {this.props.checked ? <Image 
                                     source={checkImageSource}
                                     resizeMode="stretch"
-                                    style={styles.checkImage}
+                                    style={{
+                                      width: imageWidth,
+                                      height: imageHeight,
+                                    }}
                                   />
                                 : null}
           </View>
@@ -75,8 +100,8 @@ var CheckBox = React.createClass({
   }
 });
 
-var checkboxBorderWidth = 2,
-    checkboxWidth = 26;
+var defaultCheckboxBorderWidth = 2,
+    defaultCheckboxWidth = 26;
 
 var styles = StyleSheet.create({
   container: {
@@ -85,9 +110,9 @@ var styles = StyleSheet.create({
     marginBottom: 5,
   },
   checkbox: {
-    width: checkboxWidth,
-    height: checkboxWidth,
-    borderWidth: checkboxBorderWidth,
+    width: defaultCheckboxWidth,
+    height: defaultCheckboxWidth,
+    borderWidth: defaultCheckboxBorderWidth,
     borderRadius: 4,
     borderColor: 'black',
   },
@@ -99,10 +124,6 @@ var styles = StyleSheet.create({
     fontSize: 15,
     lineHeight: 15,
     color: 'grey',
-  },
-  checkImage: {
-    width: checkboxWidth - 2*checkboxBorderWidth,
-    height: checkboxWidth - 2*checkboxBorderWidth,
   },
 });
 
