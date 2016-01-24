@@ -22,7 +22,7 @@ var CheckBox = React.createClass({
 
   getDefaultProps() {
     return {
-      label: 'Label',
+      label: null,
       labelBefore: false,
       checked: false
     }
@@ -70,11 +70,17 @@ var CheckBox = React.createClass({
                                 : null}
           </View>
         ),
-        labelContainer = (
-          <View style={styles.labelContainer}>
-            <Text style={[styles.label, this.props.labelStyle]}>{this.props.label}</Text>
-          </View>
-        );
+        labelContainer;
+        
+    if (this.props.label) {
+      labelContainer = (
+        <View style={styles.labelContainer}>
+          <Text style={[styles.label, this.props.labelStyle]}>{this.props.label}</Text>
+        </View>
+      );
+    } else {
+      labelContainer = null;
+    }
 
     var container = (
       <View style={styles.container}>
