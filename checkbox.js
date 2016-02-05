@@ -1,7 +1,9 @@
 'use strict';
 
 var React = require('react-native');
+var StyleSheetRegistry = require('StyleSheetRegistry');
 var PropTypes = React.PropTypes;
+var flattenStyle = require('flattenStyle');
 
 var {
   StyleSheet,
@@ -14,14 +16,17 @@ var {
 var CheckBox = React.createClass({
   propTypes: {
     label: PropTypes.string,
-    labelStyle: PropTypes.object,
-    checked: PropTypes.bool,
-    onChange: PropTypes.func
+    checked: PropTypes.bool.isRequired,
+    onChange: PropTypes.func,
+    checkImage: React.Image.propTypes.source,
+    style: React.View.propTypes.style,
+    labelStyle: React.Text.propTypes.style,
+    labelBefore: PropTypes.bool,
   },
 
   getDefaultProps() {
     return {
-      label: 'Label',
+      label: null,
       labelBefore: false,
       checked: false
     }
@@ -34,32 +39,50 @@ var CheckBox = React.createClass({
   },
 
   render() {
-    var source = require('./cb_disabled.png');
-
-    if(this.props.checked){
-      source = require('./cb_enabled.png');
+    var checkImageSource = this.props.checkImage || require('./check.png'),
+        checkboxStyles = flattenStyle([
+          styles.checkbox,
+          this.props.style,
+        ]),
+        imageWidth = checkboxStyles.width - 2*checkboxStyles.borderWidth,
+        imageHeight = checkboxStyles.height - 2*checkboxStyles.borderWidth,
+        checkbox = (
+          <View style={[styles.checkbox, this.props.style]}>
+            {this.props.checked ? <Image 
+                                    source={checkImageSource}
+                                    resizeMode="stretch"
+                                    style={{
+                                      width: imageWidth,
+                                      height: imageHeight,
+                                    }}
+                                  />
+                                : null}
+          </View>
+        ),
+        labelContainer;
+        
+    if (this.props.label) {
+      labelContainer = (
+        <View style={styles.labelContainer}>
+          <Text style={[styles.label, this.props.labelStyle]}>{this.props.label}</Text>
+        </View>
+      );
+    } else {
+      labelContainer = null;
     }
 
     var container = (
       <View style={styles.container}>
-        <Image
-          style={styles.checkbox}
-          source={source}/>
-        <View style={styles.labelContainer}>
-          <Text style={[styles.label, this.props.labelStyle]}>{this.props.label}</Text>
-        </View>
+        {checkbox}
+        {labelContainer}
       </View>
     );
 
     if (this.props.labelBefore) {
       container = (
         <View style={styles.container}>
-          <View style={styles.labelContainer}>
-            <Text style={[styles.label, this.props.labelStyle]}>{this.props.label}</Text>
-          </View>
-          <Image
-            style={styles.checkbox}
-            source={source}/>
+          {labelContainer}
+          {checkbox}
         </View>
       );
     }
@@ -72,6 +95,9 @@ var CheckBox = React.createClass({
   }
 });
 
+var defaultCheckboxBorderWidth = 2,
+    defaultCheckboxWidth = 26;
+
 var styles = StyleSheet.create({
   container: {
     flexDirection: 'row',
@@ -79,8 +105,11 @@ var styles = StyleSheet.create({
     marginBottom: 5,
   },
   checkbox: {
-    width: 26,
-    height: 26
+    width: defaultCheckboxWidth,
+    height: defaultCheckboxWidth,
+    borderWidth: defaultCheckboxBorderWidth,
+    borderRadius: 4,
+    borderColor: 'black',
   },
   labelContainer: {
     marginLeft: 10,
@@ -90,7 +119,7 @@ var styles = StyleSheet.create({
     fontSize: 15,
     lineHeight: 15,
     color: 'grey',
-  }
+  },
 });
 
 module.exports = CheckBox;
