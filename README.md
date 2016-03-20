@@ -12,6 +12,8 @@ npm install react-native-checkbox --save
 
 ##Example:
 ```js
+import CheckBox from 'react-native-checkbox';
+
 <CheckBox
   label='Label'
   checked={true}
