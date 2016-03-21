@@ -88,8 +88,7 @@ var styles = StyleSheet.create({
   },
   label: {
     fontSize: 15,
-    lineHeight: 15,
-    color: 'grey',
+    color: 'grey'
   }
 });
 
