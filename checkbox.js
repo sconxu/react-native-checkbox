@@ -14,7 +14,7 @@ var {
 var CheckBox = React.createClass({
   propTypes: {
     label: PropTypes.string,
-    labelStyle: PropTypes.object,
+    labelStyle: PropTypes.oneOfType([PropTypes.object,PropTypes.number]),
     checked: PropTypes.bool,
     checkedImage: PropTypes.checkedImage,
     uncheckedImage: PropTypes.uncheckedImage,
