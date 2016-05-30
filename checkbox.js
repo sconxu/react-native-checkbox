@@ -28,7 +28,7 @@ var CheckBox = React.createClass({
       labelBefore: false,
       checked: false,
       checkedImage: './cb_enabled.png',
-      uncheckedImage './cb_disabled.png',
+      uncheckedImage: './cb_disabled.png',
     }
   },
 
