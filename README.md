@@ -29,4 +29,6 @@ import CheckBox from 'react-native-checkbox';
 value is false
 - `labelStyle` : style object that will be applied to the label
 - `checked` : initial checked value
+- `checkedImage`: checked image path
+- `uncheckedImage`: unchecked image path
 - `onChange` : callback function that will be invoked with the toggled checked property as argument.
