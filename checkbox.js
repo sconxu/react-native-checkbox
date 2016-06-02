@@ -39,10 +39,10 @@ var CheckBox = React.createClass({
   },
 
   render() {
-    var source = require(uncheckedImage);
+    var source = require(this.props.uncheckedImage);
 
     if(this.props.checked){
-      source = require(checkedImage);
+      source = require(this.props.checkedImage);
     }
 
     var container = (
