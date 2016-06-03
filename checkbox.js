@@ -17,8 +17,8 @@ var CheckBox = React.createClass({
     label: PropTypes.string,
     labelStyle: PropTypes.oneOfType([PropTypes.object,PropTypes.number]),
     checked: PropTypes.bool,
-    checkedImage: PropTypes.checkedImage,
-    uncheckedImage: PropTypes.uncheckedImage,
+    checkedImage: PropTypes.number,
+    uncheckedImage: PropTypes.number,
     onChange: PropTypes.func
   },
 
@@ -27,8 +27,8 @@ var CheckBox = React.createClass({
       label: 'Label',
       labelBefore: false,
       checked: false,
-      checkedImage: './cb_enabled.png',
-      uncheckedImage: './cb_disabled.png',
+      checkedImage: require('./cb_enabled.png'),
+      uncheckedImage: require('./cb_disabled.png'),
     }
   },
 
@@ -39,10 +39,10 @@ var CheckBox = React.createClass({
   },
 
   render() {
-    var source = require(this.props.uncheckedImage);
+    var source = this.props.uncheckedImage;
 
     if(this.props.checked){
-      source = require(this.props.checkedImage);
+      source = this.props.checkedImage;
     }
 
     var container = (
