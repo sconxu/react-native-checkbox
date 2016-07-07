@@ -1,26 +1,14 @@
-'use strict';
+import {View, TouchableHighlight, StyleSheet, Image, Text} from 'react-native'
+import React, {Component, PropTypes} from 'react'
 
-var React = require('react');
-var ReactNative = require('react-native');
-var PropTypes = React.PropTypes;
-
-var {
-  StyleSheet,
-  Image,
-  Text,
-  View,
-  TouchableHighlight
-} = ReactNative;
-
-var CheckBox = React.createClass({
+export default class CustomCheckBox extends Component {
   propTypes: {
     label: PropTypes.string,
-    labelStyle: PropTypes.oneOfType([PropTypes.object,PropTypes.number]),
     checked: PropTypes.bool,
     checkedImage: PropTypes.number,
     uncheckedImage: PropTypes.number,
     onChange: PropTypes.func
-  },
+  }
 
   getDefaultProps() {
     return {
@@ -30,25 +18,29 @@ var CheckBox = React.createClass({
       checkedImage: require('./cb_enabled.png'),
       uncheckedImage: require('./cb_disabled.png'),
     }
-  },
+  }
 
   onChange() {
     if(this.props.onChange){
       this.props.onChange(!this.props.checked);
     }
-  },
+  }
 
   render() {
     var source = this.props.uncheckedImage;
-
     if(this.props.checked){
       source = this.props.checkedImage;
+    }
+
+    var imageStyle = styles.checkbox
+    if(this.props.imageStyle){
+      imageStyle = this.props.imageStyle
     }
 
     var container = (
       <View style={styles.container}>
         <Image
-          style={styles.checkbox}
+          style={imageStyle}
           source={source}/>
         <View style={styles.labelContainer}>
           <Text style={[styles.label, this.props.labelStyle]}>{this.props.label}</Text>
@@ -70,12 +62,12 @@ var CheckBox = React.createClass({
     }
 
     return (
-      <TouchableHighlight onPress={this.onChange} underlayColor='white'>
+      <TouchableHighlight onPress={this.onChange.bind(this)} underlayColor='white'>
         {container}
       </TouchableHighlight>
     )
   }
-});
+}
 
 var styles = StyleSheet.create({
   container: {
@@ -96,5 +88,3 @@ var styles = StyleSheet.create({
     color: 'grey'
   }
 });
-
-module.exports = CheckBox;
