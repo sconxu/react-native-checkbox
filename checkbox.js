@@ -16,6 +16,8 @@ var CheckBox = React.createClass({
   propTypes: {
     label: PropTypes.string,
     labelStyle: PropTypes.oneOfType([PropTypes.object,PropTypes.number]),
+    checkboxStyle: PropTypes.oneOfType([PropTypes.object,PropTypes.number]),
+    containerStyle: PropTypes.oneOfType([PropTypes.object,PropTypes.number]),
     checked: PropTypes.bool,
     checkedImage: PropTypes.number,
     uncheckedImage: PropTypes.number,
@@ -46,9 +48,9 @@ var CheckBox = React.createClass({
     }
 
     var container = (
-      <View style={styles.container}>
+      <View style={this.props.containerStyle || styles.container}>
         <Image
-          style={styles.checkbox}
+          style={this.props.checkboxStyle || styles.checkbox}
           source={source}/>
         <View style={styles.labelContainer}>
           <Text style={[styles.label, this.props.labelStyle]}>{this.props.label}</Text>
@@ -58,12 +60,12 @@ var CheckBox = React.createClass({
 
     if (this.props.labelBefore) {
       container = (
-        <View style={styles.container}>
+        <View style={this.props.containerStyle || styles.container}>
           <View style={styles.labelContainer}>
             <Text style={[styles.label, this.props.labelStyle]}>{this.props.label}</Text>
           </View>
           <Image
-            style={styles.checkbox}
+            style={this.props.checkboxStyle || styles.checkbox}
             source={source}/>
         </View>
       );
