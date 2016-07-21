@@ -21,6 +21,7 @@ var CheckBox = React.createClass({
     checked: PropTypes.bool,
     checkedImage: PropTypes.number,
     uncheckedImage: PropTypes.number,
+    underlayColor: PropTypes.string,
     onChange: PropTypes.func
   },
 
@@ -31,6 +32,7 @@ var CheckBox = React.createClass({
       checked: false,
       checkedImage: require('./cb_enabled.png'),
       uncheckedImage: require('./cb_disabled.png'),
+      underlayColor: 'white'
     }
   },
 
@@ -72,7 +74,7 @@ var CheckBox = React.createClass({
     }
 
     return (
-      <TouchableHighlight onPress={this.onChange} underlayColor='white'>
+      <TouchableHighlight onPress={this.onChange} underlayColor={this.props.underlayColor}>
         {container}
       </TouchableHighlight>
     )
