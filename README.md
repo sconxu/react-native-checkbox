@@ -36,4 +36,4 @@ value is false
 - `onChange` : callback function that will be invoked with the toggled checked property as argument.
 - `containerStyle` : style object that will be applied to the
   container
-- 'underlayColor' : style the touchable component underlay color
+- `underlayColor` : style the touchable component underlay color
