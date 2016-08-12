@@ -1,46 +1,47 @@
 'use strict';
 
-var React = require('react');
-var ReactNative = require('react-native');
-var PropTypes = React.PropTypes;
-
-var {
+import React, {
+  PropTypes,
+  Component,
+} from 'react';
+import {
   StyleSheet,
   Image,
   Text,
   View,
   TouchableHighlight
-} = ReactNative;
+} from 'react-native';
 
-var CheckBox = React.createClass({
-  propTypes: {
+export default class CheckBox extends Component {
+  static propTypes = {
     label: PropTypes.string,
-    labelStyle: PropTypes.oneOfType([PropTypes.object,PropTypes.number]),
-    checkboxStyle: PropTypes.oneOfType([PropTypes.object,PropTypes.number]),
-    containerStyle: PropTypes.oneOfType([PropTypes.object,PropTypes.number]),
+    labelStyle: Text.propTypes.style,
+    checkboxStyle: Image.propTypes.style,
+    containerStyle: View.propTypes.style,
     checked: PropTypes.bool,
-    checkedImage: PropTypes.number,
-    uncheckedImage: PropTypes.number,
-    underlayColor: PropTypes.string,
-    onChange: PropTypes.func
-  },
-
-  getDefaultProps() {
-    return {
-      label: 'Label',
-      labelBefore: false,
-      checked: false,
-      checkedImage: require('./cb_enabled.png'),
-      uncheckedImage: require('./cb_disabled.png'),
-      underlayColor: 'white'
-    }
-  },
+    checkedImage: Image.propTypes.source,
+    uncheckedImage: Image.propTypes.source,
+    underlayColor: TouchableHighlight.propTypes.underlayColor,
+    onChange: PropTypes.func,
+    labelBefore: PropTypes.bool,
+    activeOpacity: TouchableHighlight.propTypes.activeOpacity,
+  };
+  
+  static defaultProps = {
+    label: '',
+    labelBefore: false,
+    checked: false,
+    checkedImage: require('./cb_enabled.png'),
+    uncheckedImage: require('./cb_disabled.png'),
+    underlayColor: 'white',
+    activeOpacity: 0.8,
+  };
 
   onChange() {
     if(this.props.onChange){
       this.props.onChange(!this.props.checked);
     }
-  },
+  }
 
   render() {
     var source = this.props.uncheckedImage;
@@ -74,14 +75,14 @@ var CheckBox = React.createClass({
     }
 
     return (
-      <TouchableHighlight onPress={this.onChange} underlayColor={this.props.underlayColor}>
+      <TouchableHighlight onPress={this.onChange.bind(this)} activeOpacity={this.props.activeOpacity} underlayColor={this.props.underlayColor}>
         {container}
       </TouchableHighlight>
     )
   }
-});
+}
 
-var styles = StyleSheet.create({
+const styles = StyleSheet.create({
   container: {
     flexDirection: 'row',
     alignItems: 'center',
@@ -100,5 +101,3 @@ var styles = StyleSheet.create({
     color: 'grey'
   }
 });
-
-module.exports = CheckBox;
