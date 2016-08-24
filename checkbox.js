@@ -49,8 +49,8 @@ export default class CheckBox extends Component {
   render() {
     const checked = this.props.checked;
     const source = checked ? this.props.checkedImage : this.props.uncheckedImage;
-    const label = checked ? this.props.label : this.props.uncheckedLabel;
-    const labelStyle = checked ? this.props.labelStyle : this.props.uncheckedLabelStyle;
+    const label = checked ? this.props.label : this.props.uncheckedLabel || this.props.label;
+    const labelStyle = checked ? this.props.labelStyle : this.props.uncheckedLabelStyle || this.props.labelStyle;
 
     let container = (
       <View style={this.props.containerStyle || styles.container}>
