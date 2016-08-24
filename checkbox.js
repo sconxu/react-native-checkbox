@@ -15,7 +15,9 @@ import {
 export default class CheckBox extends Component {
   static propTypes = {
     label: PropTypes.string,
+    uncheckedLabel: PropTypes.string,
     labelStyle: Text.propTypes.style,
+    uncheckedLabelStyle: Text.propTypes.style,
     checkboxStyle: Image.propTypes.style,
     containerStyle: View.propTypes.style,
     checked: PropTypes.bool,
@@ -29,6 +31,7 @@ export default class CheckBox extends Component {
   
   static defaultProps = {
     label: '',
+    uncheckedLabel: '',
     labelBefore: false,
     checked: false,
     checkedImage: require('./cb_enabled.png'),
@@ -44,19 +47,18 @@ export default class CheckBox extends Component {
   }
 
   render() {
-    var source = this.props.uncheckedImage;
+    const checked = this.props.checked;
+    const source = checked ? this.props.checkedImage : this.props.uncheckedImage;
+    const label = checked ? this.props.label : this.props.uncheckedLabel;
+    const labelStyle = checked ? this.props.labelStyle : this.props.uncheckedLabelStyle;
 
-    if(this.props.checked){
-      source = this.props.checkedImage;
-    }
-
-    var container = (
+    let container = (
       <View style={this.props.containerStyle || styles.container}>
         <Image
           style={this.props.checkboxStyle || styles.checkbox}
           source={source}/>
         <View style={styles.labelContainer}>
-          <Text style={[styles.label, this.props.labelStyle]}>{this.props.label}</Text>
+          <Text style={[styles.label, labelStyle]}>{label}</Text>
         </View>
       </View>
     );
