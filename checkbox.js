@@ -14,7 +14,7 @@ var {
 
 var CheckBox = React.createClass({
   propTypes: {
-    label: PropTypes.string,
+    label: PropTypes.oneOfType([PropTypes.string,PropTypes.bool]),
     labelStyle: PropTypes.oneOfType([PropTypes.object,PropTypes.number]),
     checkboxStyle: PropTypes.oneOfType([PropTypes.object,PropTypes.number]),
     containerStyle: PropTypes.oneOfType([PropTypes.object,PropTypes.number]),
@@ -49,26 +49,30 @@ var CheckBox = React.createClass({
       source = this.props.checkedImage;
     }
 
+    var image = (
+      <Image
+        style={this.props.checkboxStyle || styles.checkbox}
+        source={source}/>
+    );
+
+    var label = this.props.label ? (
+      <View style={styles.labelContainer}>
+        <Text style={[styles.label, this.props.labelStyle]}>{this.props.label}</Text>
+      </View>
+    ) : null;
+
     var container = (
       <View style={this.props.containerStyle || styles.container}>
-        <Image
-          style={this.props.checkboxStyle || styles.checkbox}
-          source={source}/>
-        <View style={styles.labelContainer}>
-          <Text style={[styles.label, this.props.labelStyle]}>{this.props.label}</Text>
-        </View>
+        {image}
+        {label}
       </View>
     );
 
     if (this.props.labelBefore) {
       container = (
         <View style={this.props.containerStyle || styles.container}>
-          <View style={styles.labelContainer}>
-            <Text style={[styles.label, this.props.labelStyle]}>{this.props.label}</Text>
-          </View>
-          <Image
-            style={this.props.checkboxStyle || styles.checkbox}
-            source={source}/>
+          {label}
+          {image}
         </View>
       );
     }
