@@ -40,25 +40,47 @@ export default class CheckBox extends Component {
     activeOpacity: 0.8,
   };
 
-  onChange() {
-    if(this.props.onChange){
-      this.props.onChange(!this.props.checked);
-    }
+  constructor(props) {
+        super(props);
+
+     const checked = this.props.checked;
+     const source = checked ? this.props.checkedImage : this.props.uncheckedImage;
+     const label = checked ? this.props.label : this.props.uncheckedLabel || this.props.label;
+     const labelStyle = checked ? this.props.labelStyle : this.props.uncheckedLabelStyle || this.props.labelStyle;
+
+    this.state = {source: source,
+            checked:  checked,
+            label:label,
+            labelStyle:labelStyle
+    };
   }
 
-  render() {
-    const checked = this.props.checked;
+  onChange() {
+    const checked = !this.state.checked;
     const source = checked ? this.props.checkedImage : this.props.uncheckedImage;
     const label = checked ? this.props.label : this.props.uncheckedLabel || this.props.label;
     const labelStyle = checked ? this.props.labelStyle : this.props.uncheckedLabelStyle || this.props.labelStyle;
 
+    if(this.props.onChange){
+      this.props.onChange(checked);
+    }
+
+    this.setState({source: source,
+            checked:  checked,
+            label:label,
+            labelStyle:labelStyle
+    });
+  }
+
+  render() {
+    
     let container = (
       <View style={this.props.containerStyle || styles.container}>
         <Image
           style={this.props.checkboxStyle || styles.checkbox}
-          source={source}/>
+          source={this.state.source}/>
         <View style={styles.labelContainer}>
-          <Text style={[styles.label, labelStyle]}>{label}</Text>
+          <Text style={[styles.label, this.state.labelStyle]}>{this.state.label}</Text>
         </View>
       </View>
     );
@@ -67,11 +89,11 @@ export default class CheckBox extends Component {
       container = (
         <View style={this.props.containerStyle || styles.container}>
           <View style={styles.labelContainer}>
-            <Text style={[styles.label, this.props.labelStyle]}>{this.props.label}</Text>
+            <Text style={[styles.label, this.state.labelStyle]}>{this.state.label}</Text>
           </View>
           <Image
             style={this.props.checkboxStyle || styles.checkbox}
-            source={source}/>
+            source={this.state.source}/>
         </View>
       );
     }
