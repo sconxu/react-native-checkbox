@@ -15,9 +15,10 @@ var {
 var CheckBox = React.createClass({
   propTypes: {
     label: PropTypes.string,
-    labelStyle: PropTypes.oneOfType([PropTypes.object,PropTypes.number]),
-    checkboxStyle: PropTypes.oneOfType([PropTypes.object,PropTypes.number]),
-    containerStyle: PropTypes.oneOfType([PropTypes.object,PropTypes.number]),
+    labelStyle: PropTypes.oneOfType([PropTypes.array,PropTypes.object,PropTypes.number]),
+    labelLines: PropTypes.number,
+    checkboxStyle: PropTypes.oneOfType([PropTypes.array,PropTypes.object,PropTypes.number]),
+    containerStyle: PropTypes.oneOfType([PropTypes.array,PropTypes.object,PropTypes.number]),
     checked: PropTypes.bool,
     checkedImage: PropTypes.number,
     uncheckedImage: PropTypes.number,
@@ -28,6 +29,7 @@ var CheckBox = React.createClass({
   getDefaultProps() {
     return {
       label: 'Label',
+      labelLines: 1,
       labelBefore: false,
       checked: false,
       checkedImage: require('./cb_enabled.png'),
@@ -49,32 +51,34 @@ var CheckBox = React.createClass({
       source = this.props.checkedImage;
     }
 
-    var container = (
-      <View style={this.props.containerStyle || styles.container}>
-        <Image
-          style={this.props.checkboxStyle || styles.checkbox}
-          source={source}/>
-        <View style={styles.labelContainer}>
-          <Text style={[styles.label, this.props.labelStyle]}>{this.props.label}</Text>
-        </View>
-      </View>
-    );
+    var container;
 
     if (this.props.labelBefore) {
       container = (
-        <View style={this.props.containerStyle || styles.container}>
+        <View style={this.props.containerStyle || [styles.container, styles.flexContainer]}>
           <View style={styles.labelContainer}>
-            <Text style={[styles.label, this.props.labelStyle]}>{this.props.label}</Text>
+            <Text numberOfLines={this.props.labelLines} style={[styles.label, this.props.labelStyle]}>{this.props.label}</Text>
           </View>
           <Image
             style={this.props.checkboxStyle || styles.checkbox}
             source={source}/>
         </View>
       );
+    } else {
+      container = (
+        <View style={this.props.containerStyle || [styles.container, styles.flexContainer]}>
+          <Image
+            style={this.props.checkboxStyle || styles.checkbox}
+            source={source}/>
+          <View style={[styles.labelContainer]}>
+            <Text numberOfLines={this.props.labelLines} style={[styles.label, this.props.labelStyle]}>{this.props.label}</Text>
+          </View>
+        </View>
+      );
     }
 
     return (
-      <TouchableHighlight onPress={this.onChange} underlayColor={this.props.underlayColor}>
+      <TouchableHighlight onPress={this.onChange} underlayColor={this.props.underlayColor} style={styles.flexContainer}>
         {container}
       </TouchableHighlight>
     )
@@ -92,13 +96,21 @@ var styles = StyleSheet.create({
     height: 26
   },
   labelContainer: {
+    flex: 1,
+    flexShrink: 1,
     marginLeft: 10,
-    marginRight: 10
+    marginRight: 10,
   },
   label: {
     fontSize: 15,
     color: 'grey'
-  }
+  },
+
+  flexContainer: {
+    flex: 1,
+    flexGrow: 1,
+    flexShrink: 1
+  },
 });
 
 module.exports = CheckBox;
