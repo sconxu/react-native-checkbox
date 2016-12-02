@@ -25,15 +25,14 @@ import CheckBox from 'react-native-checkbox';
 
 
 - `label` : text that will be displayed along the checkbox
-- `labelBefore` : position the label before the checkbox (boolean). The default
-value is false
+- `LabelLines` : number of lines to display before being truncated. The default value is 1
+- `labelBefore` : position the label before the checkbox (boolean). The default value is false
 - `labelStyle` : style object that will be applied to the label
 - `checked` : initial checked value
 - `checkedImage`: checked image (e.g.: require('PATH_TO_IMAGE'))
-- `checkboxStyle` : style object that will be applied to the
-  checkbox
+- `checkboxStyle` : style object that will be applied to the checkbox
 - `uncheckedImage`: unchecked image (e.g.: require('PATH_TO_IMAGE'))
 - `onChange` : callback function that will be invoked with the toggled checked property as argument.
-- `containerStyle` : style object that will be applied to the
-  container
-- 'underlayColor' : style the touchable component underlay color
+- `containerStyle` : style object that will be applied to the container
+- `checkedContainerStyle` : style object that will be applied to the container when option is checked
+- ` 'underlayColor` : style the touchable component underlay color
