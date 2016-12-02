@@ -35,7 +35,8 @@ var CheckBox = React.createClass({
       checked: false,
       checkedImage: require('./cb_enabled.png'),
       uncheckedImage: require('./cb_disabled.png'),
-      underlayColor: 'white'
+      underlayColor: 'white',
+      checkedContainerStyle: {},
     }
   },
 
