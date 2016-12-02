@@ -51,7 +51,7 @@ var CheckBox = React.createClass({
 
     if(this.props.checked){
       source = this.props.checkedImage;
-      containerStyle = this.props.checkedContainerStyle || styles.container
+      containerStyle = Object.assign({}, containerStyle, this.props.checkedContainerStyle);
     }
 
     var container = (
