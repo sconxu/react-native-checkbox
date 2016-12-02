@@ -15,10 +15,10 @@ var {
 var CheckBox = React.createClass({
   propTypes: {
     label: PropTypes.string,
-    labelStyle: PropTypes.oneOfType([PropTypes.array,PropTypes.object,PropTypes.number]),
+    labelStyle: PropTypes.oneOfType([PropTypes.array, PropTypes.object,PropTypes.number]),
     labelLines: PropTypes.number,
-    checkboxStyle: PropTypes.oneOfType([PropTypes.array,PropTypes.object,PropTypes.number]),
-    containerStyle: PropTypes.oneOfType([PropTypes.array,PropTypes.object,PropTypes.number]),
+    checkboxStyle: PropTypes.oneOfType([PropTypes.array, PropTypes.object,PropTypes.number]),
+    containerStyle: PropTypes.oneOfType([PropTypes.array, PropTypes.object,PropTypes.number]),
     checked: PropTypes.bool,
     checkedImage: PropTypes.number,
     uncheckedImage: PropTypes.number,
