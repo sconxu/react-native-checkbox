@@ -29,8 +29,8 @@ var CheckBox = React.createClass({
   getDefaultProps() {
     return {
       label: 'Label',
-      labelLines: 1,
       labelBefore: false,
+      labelLines: 1,
       checked: false,
       checkedImage: require('./cb_enabled.png'),
       uncheckedImage: require('./cb_disabled.png'),
