@@ -19,6 +19,7 @@ var CheckBox = React.createClass({
     labelLines: PropTypes.number,
     checkboxStyle: PropTypes.oneOfType([PropTypes.array, PropTypes.object,PropTypes.number]),
     containerStyle: PropTypes.oneOfType([PropTypes.array, PropTypes.object,PropTypes.number]),
+    checkedContainerStyle: PropTypes.oneOfType([PropTypes.array, PropTypes.object,PropTypes.number]),
     checked: PropTypes.bool,
     checkedImage: PropTypes.number,
     uncheckedImage: PropTypes.number,
@@ -46,9 +47,11 @@ var CheckBox = React.createClass({
 
   render() {
     var source = this.props.uncheckedImage;
+    var containerStyle = this.props.containerStyle || styles.container;
 
     if(this.props.checked){
       source = this.props.checkedImage;
+      containerStyle = this.props.checkedContainerStyle || styles.container
     }
 
     var container = (
