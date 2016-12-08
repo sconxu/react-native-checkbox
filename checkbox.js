@@ -24,11 +24,14 @@ class CheckBox extends Component {
     }
 
     onChange() {
-        if (typeof this.props.checked == 'boolean' && this.props.onChange) {
+        if (this.props.onChange &&  typeof this.props.checked === 'boolean') {
             this.props.onChange(this.props.checked);
         } else {
             let internalChecked = this.state.internalChecked;
-            this.props.onChange(internalChecked);
+
+            if(this.props.onChange){
+              this.props.onChange(internalChecked);
+            }
             this.setState({
                 internalChecked: !internalChecked
             });
@@ -49,7 +52,7 @@ class CheckBox extends Component {
 
         let source;
 
-        if(typeof this.props.checked == 'boolean') {
+        if(typeof this.props.checked === 'boolean') {
           source = this.props.checked ? this.props.checkedImage : this.props.uncheckedImage;
         } else {
           source = this.state.internalChecked ? this.props.checkedImage : this.props.uncheckedImage;
@@ -110,6 +113,7 @@ var styles = StyleSheet.create({
 
 CheckBox.propTypes = {
     label: PropTypes.string,
+    labelBefore: PropTypes.bool,
     labelStyle: PropTypes.oneOfType([PropTypes.array,PropTypes.object,PropTypes.number]),
     labelLines: PropTypes.number,
     checkboxStyle: PropTypes.oneOfType([PropTypes.array,PropTypes.object,PropTypes.number]),
