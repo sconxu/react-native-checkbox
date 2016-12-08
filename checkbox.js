@@ -18,13 +18,13 @@ class CheckBox extends Component {
 
         this.state = {
             internalChecked: false
-        }
+        };
 
         this.onChange = this.onChange.bind(this);
     }
 
     onChange() {
-        if (this.props.checked && this.props.onChange) {
+        if (typeof this.props.checked == 'boolean' && this.props.onChange) {
             this.props.onChange(this.props.checked);
         } else {
             let internalChecked = this.state.internalChecked;
@@ -47,10 +47,12 @@ class CheckBox extends Component {
             </View>
         );
 
-        let source = this.state.internalChecked ? this.props.checkedImage : this.props.uncheckedImage;
+        let source;
 
-        if(this.props.checked) {
-            source = this.props.checked ? this.props.checkedImage : this.props.uncheckedImage;
+        if(typeof this.props.checked == 'boolean') {
+          source = this.props.checked ? this.props.checkedImage : this.props.uncheckedImage;
+        } else {
+          source = this.state.internalChecked ? this.props.checkedImage : this.props.uncheckedImage;
         }
 
 
@@ -82,9 +84,9 @@ class CheckBox extends Component {
             <TouchableHighlight onPress={this.onChange} underlayColor={this.props.underlayColor} style={styles.flexContainer}>
                 {container}
             </TouchableHighlight>
-        )
+        );
     }
-};
+}
 
 var styles = StyleSheet.create({
     container: {
