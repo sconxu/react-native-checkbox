@@ -18,17 +18,20 @@ class CheckBox extends Component {
 
         this.state = {
             internalChecked: false
-        }
+        };
 
         this.onChange = this.onChange.bind(this);
     }
 
     onChange() {
-        if (this.props.checked && this.props.onChange) {
+        if (this.props.onChange &&  typeof this.props.checked === 'boolean') {
             this.props.onChange(this.props.checked);
         } else {
             let internalChecked = this.state.internalChecked;
-            this.props.onChange(internalChecked);
+
+            if(this.props.onChange){
+              this.props.onChange(internalChecked);
+            }
             this.setState({
                 internalChecked: !internalChecked
             });
@@ -47,10 +50,12 @@ class CheckBox extends Component {
             </View>
         );
 
-        let source = this.state.internalChecked ? this.props.checkedImage : this.props.uncheckedImage;
+        let source;
 
-        if(this.props.checked) {
-            source = this.props.checked ? this.props.checkedImage : this.props.uncheckedImage;
+        if(typeof this.props.checked === 'boolean') {
+          source = this.props.checked ? this.props.checkedImage : this.props.uncheckedImage;
+        } else {
+          source = this.state.internalChecked ? this.props.checkedImage : this.props.uncheckedImage;
         }
 
 
@@ -82,9 +87,9 @@ class CheckBox extends Component {
             <TouchableHighlight onPress={this.onChange} underlayColor={this.props.underlayColor} style={styles.flexContainer}>
                 {container}
             </TouchableHighlight>
-        )
+        );
     }
-};
+}
 
 var styles = StyleSheet.create({
     container: {
@@ -108,6 +113,7 @@ var styles = StyleSheet.create({
 
 CheckBox.propTypes = {
     label: PropTypes.string,
+    labelBefore: PropTypes.bool,
     labelStyle: PropTypes.oneOfType([PropTypes.array,PropTypes.object,PropTypes.number]),
     labelLines: PropTypes.number,
     checkboxStyle: PropTypes.oneOfType([PropTypes.array,PropTypes.object,PropTypes.number]),
