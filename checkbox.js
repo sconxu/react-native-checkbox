@@ -44,7 +44,7 @@ class CheckBox extends Component {
                 <Image
                 style={this.props.checkboxStyle || styles.checkbox}
                 source={source}/>
-                <View style={styles.labelContainer}>
+			<View style={this.props.labelContainerStyle || styles.labelContainer}>
                     <Text style={[styles.label, this.props.labelStyle]}>{this.props.label}</Text>
                 </View>
             </View>
@@ -62,7 +62,7 @@ class CheckBox extends Component {
         if (this.props.labelBefore) {
             container = (
                 <View style={this.props.containerStyle || [styles.container, styles.flexContainer]}>
-                    <View style={styles.labelContainer}>
+                    <View style={this.props.labelContainerStyle || styles.labelContainer}>
                         <Text numberOfLines={this.props.labelLines} style={[styles.label, this.props.labelStyle]}>{this.props.label}</Text>
                     </View>
                     <Image
@@ -76,7 +76,7 @@ class CheckBox extends Component {
                     <Image
                     style={[styles.checkbox, this.props.checkboxStyle]}
                     source={source}/>
-                    <View style={styles.labelContainer}>
+				<View style={this.props.labelContainerStyle || styles.labelContainer}>
                         <Text numberOfLines={this.props.labelLines} style={[styles.label, this.props.labelStyle]}>{this.props.label}</Text>
                     </View>
                 </View>
