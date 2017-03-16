@@ -12,6 +12,8 @@ npm install react-native-checkbox --save
 
 ##Example:
 ```js
+import CheckBox from 'react-native-checkbox';
+
 <CheckBox
   label='Label'
   checked={true}
@@ -27,4 +29,11 @@ npm install react-native-checkbox --save
 value is false
 - `labelStyle` : style object that will be applied to the label
 - `checked` : initial checked value
+- `checkedImage`: checked image (e.g.: require('PATH_TO_IMAGE'))
+- `checkboxStyle` : style object that will be applied to the
+  checkbox
+- `uncheckedImage`: unchecked image (e.g.: require('PATH_TO_IMAGE'))
 - `onChange` : callback function that will be invoked with the toggled checked property as argument.
+- `containerStyle` : style object that will be applied to the
+  container
+- 'underlayColor' : style the touchable component underlay color
