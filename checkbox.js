@@ -98,8 +98,8 @@ var styles = StyleSheet.create({
         marginBottom: 5,
     },
     checkbox: {
-        width: 26,
-        height: 26
+        width: 32,
+        height: 32
     },
     labelContainer: {
         marginLeft: 10,
