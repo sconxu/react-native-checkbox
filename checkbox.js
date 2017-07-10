@@ -84,7 +84,7 @@ class CheckBox extends Component {
         }
 
         return (
-            <TouchableHighlight onPress={this.onChange} underlayColor={this.props.underlayColor} style={styles.flexContainer}>
+            <TouchableHighlight accessible={this.props.accessible} accessibilityLabel={this.props.accessibilityLabel} testID={this.props.testID} onPress={this.onChange} underlayColor={this.props.underlayColor} style={styles.flexContainer}>
                 {container}
             </TouchableHighlight>
         );
@@ -112,6 +112,9 @@ var styles = StyleSheet.create({
 });
 
 CheckBox.propTypes = {
+    accessible: PropTypes.bool,
+    accessibilityLabel: PropTypes.string,
+    testID: PropTypes.string,
     label: PropTypes.string,
     labelBefore: PropTypes.bool,
     labelStyle: PropTypes.oneOfType([PropTypes.array,PropTypes.object,PropTypes.number]),
