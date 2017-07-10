@@ -36,7 +36,7 @@ value is false
 - `onChange` : callback function that will be invoked with the toggled checked property as argument.
 - `containerStyle` : style object that will be applied to the
   container
-- 'underlayColor' : style the touchable component underlay color
-- 'accessible' : indicates whether view is an accessible element
-- 'accessibilityLabel' : maps to content description / label for Android automation
-- 'testID' : maps to id / name for iOS automation
+- `underlayColor` : style the touchable component underlay color
+- `accessible` : indicates whether view is an accessible element
+- `accessibilityLabel` : maps to content description / label for Android automation
+- `testID` : maps to id / name for iOS automation
