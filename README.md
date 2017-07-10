@@ -37,3 +37,6 @@ value is false
 - `containerStyle` : style object that will be applied to the
   container
 - 'underlayColor' : style the touchable component underlay color
+- 'accessible' : indicates whether view is an accessible element
+- 'accessibilityLabel' : maps to content description / label for Android automation
+- 'testID' : maps to id / name for iOS automation
