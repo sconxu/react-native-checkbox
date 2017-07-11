@@ -62,12 +62,18 @@ class CheckBox extends Component {
         if (this.props.labelBefore) {
             container = (
                 <View style={this.props.containerStyle || [styles.container, styles.flexContainer]}>
-                    <View style={styles.labelContainer}>
+                    <View style={styles.labelContainer}
+                      accessible={this.props.accessible}
+                      accessibilityLabel={this.props.accessibilityLabel + 'Label'}
+                      testID={this.props.testID + 'Label'}>
                         <Text numberOfLines={this.props.labelLines} style={[styles.label, this.props.labelStyle]}>{this.props.label}</Text>
                     </View>
                     <Image
                     style={[styles.checkbox, this.props.checkboxStyle]}
-                    source={source}/>
+                    source={source}
+                    accessible={this.props.accessible}
+                    accessibilityLabel={this.props.accessibilityLabel + 'Checkbox'}
+                    testID={this.props.testID + 'Checkbox'}/>
                 </View>
             );
         } else {
@@ -75,8 +81,14 @@ class CheckBox extends Component {
                 <View style={[styles.container, this.props.containerStyle]}>
                     <Image
                     style={[styles.checkbox, this.props.checkboxStyle]}
-                    source={source}/>
-                    <View style={styles.labelContainer}>
+                    source={source}
+                    accessible={this.props.accessible}
+                    accessibilityLabel={this.props.accessibilityLabel + 'Checkbox'}
+                    testID={this.props.testID + 'Checkbox'}/>
+                    <View style={styles.labelContainer}
+                      accessible={this.props.accessible}
+                      accessibilityLabel={this.props.accessibilityLabel + 'Label'}
+                      testID={this.props.testID + 'Label'}>
                         <Text numberOfLines={this.props.labelLines} style={[styles.label, this.props.labelStyle]}>{this.props.label}</Text>
                     </View>
                 </View>
