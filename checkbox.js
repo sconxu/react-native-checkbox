@@ -1,7 +1,9 @@
 'use strict';
 
 import React, { Component } from 'react';
-var PropTypes = React.PropTypes;
+
+const PropTypes = require('prop-types');
+
 import {
     StyleSheet,
     Image,
@@ -9,6 +11,7 @@ import {
     View,
     TouchableHighlight
 } from 'react-native';
+
 const CB_ENABLED_IMAGE = require('./cb_enabled.png');
 const CB_DISABLED_IMAGE = require('./cb_disabled.png');
 

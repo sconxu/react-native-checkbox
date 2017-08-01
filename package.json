@@ -23,5 +23,8 @@
   "bugs": {
     "url": "https://github.com/sconxu/react-native-checkbox/issues"
   },
-  "homepage": "https://github.com/sconxu/react-native-checkbox#readme"
+  "homepage": "https://github.com/sconxu/react-native-checkbox#readme",
+  "dependencies": {
+  	"prop-types": "^15.5.10"
+  }
 }
