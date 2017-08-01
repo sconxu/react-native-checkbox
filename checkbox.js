@@ -1,7 +1,7 @@
 'use strict';
 
 import React, { Component } from 'react';
-var PropTypes = React.PropTypes;
+import PropTypes from 'prop-types';
 import {
     StyleSheet,
     Image,
