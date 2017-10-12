@@ -20,9 +20,10 @@ class CheckBox extends Component {
         super(props);
 
         this.state = {
-            internalChecked: false
+            internalChecked: false,
+            isDisabled : props.disabled
         };
-
+        this.baseState = this.state;
         this.onChange = this.onChange.bind(this);
     }
 
@@ -39,6 +40,9 @@ class CheckBox extends Component {
                 internalChecked: !internalChecked
             });
         }
+    }
+    componentWillMount() {
+        this.setState(this.baseState)
     }
 
     render() {
@@ -91,7 +95,7 @@ class CheckBox extends Component {
         }
 
         return (
-            <TouchableHighlight onPress={this.onChange} underlayColor={this.props.underlayColor} style={styles.flexContainer}>
+            <TouchableHighlight onPress={this.onChange} underlayColor={this.props.underlayColor} style={styles.flexContainer} disabled = {this.state.isDisabled}>
                 {container}
             </TouchableHighlight>
         );
