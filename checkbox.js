@@ -32,12 +32,13 @@ class CheckBox extends Component {
             this.props.onChange(this.props.checked);
         } else {
             let internalChecked = this.state.internalChecked;
+            let newState = !internalChecked;
 
             if(this.props.onChange){
-              this.props.onChange(internalChecked);
+              this.props.onChange(newState);
             }
             this.setState({
-                internalChecked: !internalChecked
+                internalChecked: newState
             });
         }
     }
