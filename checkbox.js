@@ -143,7 +143,7 @@ CheckBox.defaultProps = {
     checked: null,
     checkedImage: CB_ENABLED_IMAGE,
     uncheckedImage: CB_DISABLED_IMAGE,
-    underlayColor: 'white'
+    underlayColor: 'transparent'
 };
 
 module.exports = CheckBox;
