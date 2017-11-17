@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import CheckBox from 'react-native-checkbox';
 import { StyleSheet, Text, View } from 'react-native';
-const checkedImage =require('./checked.png');
+const checkedImage =require('./image/checked.png');
+const unCheckedImage = require('./image/unChecked.png');
 
 export default class App extends Component {
 
@@ -23,7 +24,7 @@ export default class App extends Component {
       <View style={styles.container}>
         <View style={styles.checkBoxView}>
           <Text style={styles.text}>
-            Default Checkbox as describbed in README.md
+            Note - Default Checkbox as describbed in README.md
           </Text>
           <CheckBox
             label='label'
@@ -34,7 +35,7 @@ export default class App extends Component {
 
         <View style={styles.checkBoxView}>
           <Text style={styles.text}>
-            Checkbox with different Font size or Color of Label
+            Note - Checkbox with different Font size or Color of Label
           </Text>
           <CheckBox
             label='CheckBox1'
@@ -46,13 +47,28 @@ export default class App extends Component {
 
         <View style={styles.checkBoxView}>
           <Text style={styles.text}>
-            Checkbox with differentImage
+            Note - Checkbox with different Images
           </Text>
           <CheckBox
             checkedImage={checkedImage}
+            uncheckedImage={unCheckedImage}
             label='CheckBox1'
             checked={this.state.checkbox}
             onChange={this.checkBoxState}
+          />
+        </View>
+
+        <View style={styles.checkBoxView}>
+          <Text style={styles.text}>
+            Note - Checkbox with underlayColor Color
+          </Text>
+          <CheckBox
+            checkedImage={checkedImage}
+            uncheckedImage={unCheckedImage}
+            label='CheckBox1'
+            checked={this.state.checkbox}
+            onChange={this.checkBoxState}
+            underlayColor="red"
           />
         </View>
       </View>
@@ -70,7 +86,11 @@ const styles = StyleSheet.create({
     alignItems:'flex-start',
     marginTop:10,
     marginBottom:10,
-    marginLeft:20
+    marginLeft:20,
+    marginRight:20,
+    borderBottomWidth:5,
+    borderBottomColor:'#000',
+    paddingBottom:10,
   },
   text:{
     fontSize:14,
@@ -78,7 +98,7 @@ const styles = StyleSheet.create({
   },
   labelStyle:{
     fontSize:20,
-    color:'red'
+    color:'#FF0000'
   }
 
 });
