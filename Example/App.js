@@ -100,5 +100,4 @@ const styles = StyleSheet.create({
     fontSize:20,
     color:'#FF0000'
   }
-
 });
