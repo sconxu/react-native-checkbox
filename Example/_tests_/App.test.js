@@ -19,3 +19,11 @@ test('onChange of Checkbox false', () => {
   checkBox.checkBoxState(false)
   expect(checkBox.state.checkbox).toEqual(true);
 });
+
+test('Checkbox exist', () => {
+  const component = renderer.create(<App />).toJSON();
+  expect(findById(component, 'checkBBox1')).toBeDefined();
+  expect(findById(component, 'checkBBox2')).toBeDefined()
+  expect(findById(component, 'checkBBox3')).toBeDefined()
+  expect(findById(component, 'checkBBox4')).toBeDefined()
+});

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import CheckBox from 'react-native-checkbox';
+import CheckBox from './checkBox/checkbox';
 import { StyleSheet, Text, View } from 'react-native';
 const checkedImage =require('./image/checked.png');
 const unCheckedImage = require('./image/unChecked.png');
@@ -33,7 +33,7 @@ export default class App extends Component {
             Note - Default Checkbox as describbed in README.md
           </Text>
           <CheckBox
-            testID={'checkBBox1'}
+            testID='checkBBox1'
             label='label'
             checked={this.state.checkbox}
             onChange={this.checkBoxState}
@@ -45,7 +45,7 @@ export default class App extends Component {
             Note - Checkbox with different Font size or Color of Label
           </Text>
           <CheckBox
-            testID={'checkBBox2'}
+            testID='checkBBox2'
             label='CheckBox1'
             labelStyle={styles.labelStyle}
             checked={this.state.checkbox}
@@ -58,7 +58,7 @@ export default class App extends Component {
             Note - Checkbox with different Images
           </Text>
           <CheckBox
-            testID={'checkBBox3'}
+            testID='checkBBox3'
             checkedImage={checkedImage}
             uncheckedImage={unCheckedImage}
             label='CheckBox1'
@@ -72,7 +72,7 @@ export default class App extends Component {
             Note - Checkbox with underlayColor Color
           </Text>
           <CheckBox
-            testID={'checkBBox4'}
+            testID='checkBBox4'
             checkedImage={checkedImage}
             uncheckedImage={unCheckedImage}
             label='CheckBox1'

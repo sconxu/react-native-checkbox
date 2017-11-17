@@ -62,7 +62,7 @@ exports[`renders without crashing 1`] = `
           undefined,
         ]
       }
-      testID={undefined}
+      testID="checkBBox1"
       tvParallaxProperties={undefined}
     >
       <View
@@ -171,7 +171,7 @@ exports[`renders without crashing 1`] = `
           undefined,
         ]
       }
-      testID={undefined}
+      testID="checkBBox2"
       tvParallaxProperties={undefined}
     >
       <View
@@ -283,7 +283,7 @@ exports[`renders without crashing 1`] = `
           undefined,
         ]
       }
-      testID={undefined}
+      testID="checkBBox3"
       tvParallaxProperties={undefined}
     >
       <View
@@ -392,7 +392,7 @@ exports[`renders without crashing 1`] = `
           undefined,
         ]
       }
-      testID={undefined}
+      testID="checkBBox4"
       tvParallaxProperties={undefined}
     >
       <View
