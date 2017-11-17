@@ -1,9 +1,7 @@
 'use strict';
 
 import React, { Component } from 'react';
-
 const PropTypes = require('prop-types');
-
 import {
     StyleSheet,
     Image,
@@ -69,7 +67,7 @@ class CheckBox extends Component {
 
         if (this.props.labelBefore) {
             container = (
-                <View style={this.props.containerStyle || [styles.container, styles.flexContainer]}>
+                <View style={this.props.containerStyle || styles.container}>
                     { (this.props.label ? (
                       <View style={styles.labelContainer}>
                           <Text numberOfLines={this.props.labelLines} style={[styles.label, this.props.labelStyle]}>{this.props.label}</Text>
@@ -96,7 +94,11 @@ class CheckBox extends Component {
         }
 
         return (
-            <TouchableHighlight onPress={this.onChange} underlayColor={this.props.underlayColor} style={styles.flexContainer} disabled = {this.state.isDisabled}>
+            <TouchableHighlight
+              onPress={this.onChange}
+              underlayColor={this.props.underlayColor}
+              disabled={this.state.isDisabled}
+              testID={this.props.testID}>
                 {container}
             </TouchableHighlight>
         );
@@ -134,7 +136,8 @@ CheckBox.propTypes = {
     checkedImage: PropTypes.number,
     uncheckedImage: PropTypes.number,
     underlayColor: PropTypes.string,
-    onChange: PropTypes.func
+    onChange: PropTypes.func,
+    testID: PropTypes.string
 };
 
 CheckBox.defaultProps = {
