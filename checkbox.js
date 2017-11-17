@@ -67,7 +67,7 @@ class CheckBox extends Component {
 
         if (this.props.labelBefore) {
             container = (
-                <View style={this.props.containerStyle || styles.container}>
+                <View style={this.props.containerStyle || [styles.container, styles.flexContainer]}>
                     { (this.props.label ? (
                       <View style={styles.labelContainer}>
                           <Text numberOfLines={this.props.labelLines} style={[styles.label, this.props.labelStyle]}>{this.props.label}</Text>
