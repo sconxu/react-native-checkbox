@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import CheckBox from 'react-native-checkbox';
 import { StyleSheet, Text, View } from 'react-native';
+const checkedImage =require('./checked.png');
 
 export default class App extends Component {
 
@@ -43,6 +44,17 @@ export default class App extends Component {
           />
         </View>
 
+        <View style={styles.checkBoxView}>
+          <Text style={styles.text}>
+            Checkbox with differentImage
+          </Text>
+          <CheckBox
+            checkedImage={checkedImage}
+            label='CheckBox1'
+            checked={this.state.checkbox}
+            onChange={this.checkBoxState}
+          />
+        </View>
       </View>
     );
   }
