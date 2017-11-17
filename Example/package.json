@@ -13,10 +13,15 @@
     "eject": "react-native-scripts eject",
     "android": "react-native-scripts android",
     "ios": "react-native-scripts ios",
-    "test": "node node_modules/jest/bin/jest.js --watch"
+    "test": "node node_modules/jest/bin/jest.js",
+    "test:watch": "node node_modules/jest/bin/jest.js --watch --coverage",
+    "test:update": "node node_modules/jest/bin/jest.js --updateSnapshot"
   },
   "jest": {
-    "preset": "jest-expo"
+    "preset": "jest-expo",
+    "snapshotSerializers": [
+      "./node_modules/jest-serializer-enzyme"
+    ]
   },
   "dependencies": {
     "expo": "^22.0.2",
