@@ -1,0 +1,453 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders without crashing 1`] = `
+<View
+  style={
+    Object {
+      "backgroundColor": "#fff",
+      "flex": 1,
+      "justifyContent": "center",
+    }
+  }
+>
+  <View
+    style={
+      Object {
+        "alignItems": "flex-start",
+        "borderBottomColor": "#000",
+        "borderBottomWidth": 5,
+        "marginBottom": 10,
+        "marginLeft": 45,
+        "marginRight": 45,
+        "marginTop": 10,
+        "paddingBottom": 10,
+      }
+    }
+  >
+    <Text
+      accessible={true}
+      allowFontScaling={true}
+      disabled={false}
+      ellipsizeMode="tail"
+      style={
+        Object {
+          "fontSize": 14,
+          "marginBottom": 8,
+        }
+      }
+    >
+      Note - Default Checkbox as describbed in README.md
+    </Text>
+    <View
+      accessibilityComponentType={undefined}
+      accessibilityLabel={undefined}
+      accessibilityTraits={undefined}
+      accessible={true}
+      hasTVPreferredFocus={undefined}
+      hitSlop={undefined}
+      isTVSelectable={true}
+      nativeID={undefined}
+      onLayout={undefined}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Array [
+          Object {
+            "backgroundColor": "transparent",
+          },
+          undefined,
+        ]
+      }
+      testID="checkBBox1"
+      tvParallaxProperties={undefined}
+    >
+      <View
+        style={
+          Array [
+            Object {
+              "alignItems": "center",
+              "flexDirection": "row",
+              "marginBottom": 5,
+            },
+            undefined,
+          ]
+        }
+      >
+        <Image
+          source={1}
+          style={
+            Array [
+              Object {
+                "height": 26,
+                "width": 26,
+              },
+              undefined,
+            ]
+          }
+        />
+        <View
+          style={
+            Object {
+              "marginLeft": 10,
+              "marginRight": 10,
+            }
+          }
+        >
+          <Text
+            accessible={true}
+            allowFontScaling={true}
+            disabled={false}
+            ellipsizeMode="tail"
+            numberOfLines={1}
+            style={
+              Array [
+                Object {
+                  "color": "grey",
+                  "fontSize": 15,
+                },
+                undefined,
+              ]
+            }
+          >
+            label
+          </Text>
+        </View>
+      </View>
+    </View>
+  </View>
+  <View
+    style={
+      Object {
+        "alignItems": "flex-start",
+        "borderBottomColor": "#000",
+        "borderBottomWidth": 5,
+        "marginBottom": 10,
+        "marginLeft": 45,
+        "marginRight": 45,
+        "marginTop": 10,
+        "paddingBottom": 10,
+      }
+    }
+  >
+    <Text
+      accessible={true}
+      allowFontScaling={true}
+      disabled={false}
+      ellipsizeMode="tail"
+      style={
+        Object {
+          "fontSize": 14,
+          "marginBottom": 8,
+        }
+      }
+    >
+      Note - Checkbox with different Font size or Color of Label
+    </Text>
+    <View
+      accessibilityComponentType={undefined}
+      accessibilityLabel={undefined}
+      accessibilityTraits={undefined}
+      accessible={true}
+      hasTVPreferredFocus={undefined}
+      hitSlop={undefined}
+      isTVSelectable={true}
+      nativeID={undefined}
+      onLayout={undefined}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Array [
+          Object {
+            "backgroundColor": "transparent",
+          },
+          undefined,
+        ]
+      }
+      testID="checkBBox2"
+      tvParallaxProperties={undefined}
+    >
+      <View
+        style={
+          Array [
+            Object {
+              "alignItems": "center",
+              "flexDirection": "row",
+              "marginBottom": 5,
+            },
+            undefined,
+          ]
+        }
+      >
+        <Image
+          source={1}
+          style={
+            Array [
+              Object {
+                "height": 26,
+                "width": 26,
+              },
+              undefined,
+            ]
+          }
+        />
+        <View
+          style={
+            Object {
+              "marginLeft": 10,
+              "marginRight": 10,
+            }
+          }
+        >
+          <Text
+            accessible={true}
+            allowFontScaling={true}
+            disabled={false}
+            ellipsizeMode="tail"
+            numberOfLines={1}
+            style={
+              Array [
+                Object {
+                  "color": "grey",
+                  "fontSize": 15,
+                },
+                Object {
+                  "color": "#FF0000",
+                  "fontSize": 20,
+                },
+              ]
+            }
+          >
+            CheckBox1
+          </Text>
+        </View>
+      </View>
+    </View>
+  </View>
+  <View
+    style={
+      Object {
+        "alignItems": "flex-start",
+        "borderBottomColor": "#000",
+        "borderBottomWidth": 5,
+        "marginBottom": 10,
+        "marginLeft": 45,
+        "marginRight": 45,
+        "marginTop": 10,
+        "paddingBottom": 10,
+      }
+    }
+  >
+    <Text
+      accessible={true}
+      allowFontScaling={true}
+      disabled={false}
+      ellipsizeMode="tail"
+      style={
+        Object {
+          "fontSize": 14,
+          "marginBottom": 8,
+        }
+      }
+    >
+      Note - Checkbox with different Images
+    </Text>
+    <View
+      accessibilityComponentType={undefined}
+      accessibilityLabel={undefined}
+      accessibilityTraits={undefined}
+      accessible={true}
+      hasTVPreferredFocus={undefined}
+      hitSlop={undefined}
+      isTVSelectable={true}
+      nativeID={undefined}
+      onLayout={undefined}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Array [
+          Object {
+            "backgroundColor": "transparent",
+          },
+          undefined,
+        ]
+      }
+      testID="checkBBox3"
+      tvParallaxProperties={undefined}
+    >
+      <View
+        style={
+          Array [
+            Object {
+              "alignItems": "center",
+              "flexDirection": "row",
+              "marginBottom": 5,
+            },
+            undefined,
+          ]
+        }
+      >
+        <Image
+          source={1}
+          style={
+            Array [
+              Object {
+                "height": 26,
+                "width": 26,
+              },
+              undefined,
+            ]
+          }
+        />
+        <View
+          style={
+            Object {
+              "marginLeft": 10,
+              "marginRight": 10,
+            }
+          }
+        >
+          <Text
+            accessible={true}
+            allowFontScaling={true}
+            disabled={false}
+            ellipsizeMode="tail"
+            numberOfLines={1}
+            style={
+              Array [
+                Object {
+                  "color": "grey",
+                  "fontSize": 15,
+                },
+                undefined,
+              ]
+            }
+          >
+            CheckBox1
+          </Text>
+        </View>
+      </View>
+    </View>
+  </View>
+  <View
+    style={
+      Object {
+        "alignItems": "flex-start",
+        "borderBottomColor": "#000",
+        "borderBottomWidth": 5,
+        "marginBottom": 10,
+        "marginLeft": 45,
+        "marginRight": 45,
+        "marginTop": 10,
+        "paddingBottom": 10,
+      }
+    }
+  >
+    <Text
+      accessible={true}
+      allowFontScaling={true}
+      disabled={false}
+      ellipsizeMode="tail"
+      style={
+        Object {
+          "fontSize": 14,
+          "marginBottom": 8,
+        }
+      }
+    >
+      Note - Checkbox with underlayColor Color
+    </Text>
+    <View
+      accessibilityComponentType={undefined}
+      accessibilityLabel={undefined}
+      accessibilityTraits={undefined}
+      accessible={true}
+      hasTVPreferredFocus={undefined}
+      hitSlop={undefined}
+      isTVSelectable={true}
+      nativeID={undefined}
+      onLayout={undefined}
+      onResponderGrant={[Function]}
+      onResponderMove={[Function]}
+      onResponderRelease={[Function]}
+      onResponderTerminate={[Function]}
+      onResponderTerminationRequest={[Function]}
+      onStartShouldSetResponder={[Function]}
+      style={
+        Array [
+          Object {
+            "backgroundColor": "transparent",
+          },
+          undefined,
+        ]
+      }
+      testID="checkBBox4"
+      tvParallaxProperties={undefined}
+    >
+      <View
+        style={
+          Array [
+            Object {
+              "alignItems": "center",
+              "flexDirection": "row",
+              "marginBottom": 5,
+            },
+            undefined,
+          ]
+        }
+      >
+        <Image
+          source={1}
+          style={
+            Array [
+              Object {
+                "height": 26,
+                "width": 26,
+              },
+              undefined,
+            ]
+          }
+        />
+        <View
+          style={
+            Object {
+              "marginLeft": 10,
+              "marginRight": 10,
+            }
+          }
+        >
+          <Text
+            accessible={true}
+            allowFontScaling={true}
+            disabled={false}
+            ellipsizeMode="tail"
+            numberOfLines={1}
+            style={
+              Array [
+                Object {
+                  "color": "grey",
+                  "fontSize": 15,
+                },
+                undefined,
+              ]
+            }
+          >
+            CheckBox1
+          </Text>
+        </View>
+      </View>
+    </View>
+  </View>
+</View>
+`;
