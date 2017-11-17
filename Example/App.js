@@ -3,6 +3,12 @@ import CheckBox from 'react-native-checkbox';
 import { StyleSheet, Text, View } from 'react-native';
 const checkedImage =require('./image/checked.png');
 const unCheckedImage = require('./image/unChecked.png');
+const Dimensions = require('Dimensions');
+
+const viewport = {
+  fullWidth: Dimensions.get('window').width,
+  fullHeight: Dimensions.get('window').height,
+};
 
 export default class App extends Component {
 
@@ -86,8 +92,8 @@ const styles = StyleSheet.create({
     alignItems:'flex-start',
     marginTop:10,
     marginBottom:10,
-    marginLeft:20,
-    marginRight:20,
+    marginLeft:viewport.fullWidth * 0.06,
+    marginRight:viewport.fullWidth * 0.06,
     borderBottomWidth:5,
     borderBottomColor:'#000',
     paddingBottom:10,
