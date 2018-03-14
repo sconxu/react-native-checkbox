@@ -47,8 +47,9 @@ class CheckBox extends Component {
     }
 
     render() {
+        const containerStyle = this.props.containerStyle || styles.container;
         let container = (
-            <View style={this.props.containerStyle || styles.container}>
+            <View style={containerStyle}>
                 <Image
                 style={this.props.checkboxStyle || styles.checkbox}
                 source={source}/>
@@ -69,7 +70,7 @@ class CheckBox extends Component {
 
         if (this.props.labelBefore) {
             container = (
-                <View style={this.props.containerStyle || [styles.container, styles.flexContainer]}>
+                <View style={containerStyle}>
                     { (this.props.label ? (
                       <View style={styles.labelContainer}>
                           <Text numberOfLines={this.props.labelLines} style={[styles.label, this.props.labelStyle]}>{this.props.label}</Text>
@@ -82,7 +83,7 @@ class CheckBox extends Component {
             );
         } else {
             container = (
-                <View style={[styles.container, this.props.containerStyle]}>
+                <View style={containerStyle}>
                     <Image
                     style={[styles.checkbox, this.props.checkboxStyle]}
                     source={source}/>
@@ -96,7 +97,7 @@ class CheckBox extends Component {
         }
 
         return (
-            <TouchableHighlight onPress={this.onChange} underlayColor={this.props.underlayColor} style={styles.flexContainer} disabled = {this.state.isDisabled}>
+            <TouchableHighlight onPress={this.onChange} underlayColor={this.props.underlayColor} style={containerStyle} disabled = {this.state.isDisabled}>
                 {container}
             </TouchableHighlight>
         );
