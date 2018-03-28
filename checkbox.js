@@ -29,7 +29,8 @@ class CheckBox extends Component {
 
     onChange() {
         if (this.props.onChange &&  typeof this.props.checked === 'boolean') {
-            this.props.onChange(this.props.checked);
+            // If passing the value as a prop, return the negation of current value
+            this.props.onChange(!this.props.checked);
         } else {
             let internalChecked = this.state.internalChecked;
             let newState = !internalChecked;
