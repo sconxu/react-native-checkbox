@@ -28,3 +28,6 @@ node_modules
 
 # vim
 *.sw*
+
+# osx
+.DS_Store
