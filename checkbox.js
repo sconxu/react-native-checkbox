@@ -104,7 +104,7 @@ class CheckBox extends Component {
 }
 
 var styles = StyleSheet.create({
-    container: {
+    flexContainer: {
         flexDirection: 'row',
         alignItems: 'center',
         marginBottom: 5,
