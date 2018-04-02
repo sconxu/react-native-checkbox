@@ -106,7 +106,7 @@ class CheckBox extends Component {
         }
 
         return (
-            <TouchableHighlight accessible={this.props.accessible} accessibilityLabel={this.props.accessibilityLabel} testID={this.props.testID} onPress={this.onChange} underlayColor={this.props.underlayColor} style={styles.flexContainer}>
+            <TouchableHighlight accessible={this.props.accessible} accessibilityLabel={this.props.accessibilityLabel} testID={this.props.testID} onPress={this.onChange} underlayColor={this.props.underlayColor} style={styles.flexContainer} checkbox={this.props.hitSlop}>
                 {container}
             </TouchableHighlight>
         );
@@ -147,7 +147,8 @@ CheckBox.propTypes = {
     checkedImage: PropTypes.number,
     uncheckedImage: PropTypes.number,
     underlayColor: PropTypes.string,
-    onChange: PropTypes.func
+    onChange: PropTypes.func,
+    hitSlop: PropTypes.object
 };
 
 CheckBox.defaultProps = {
