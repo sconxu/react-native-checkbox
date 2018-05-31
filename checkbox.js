@@ -145,8 +145,8 @@ CheckBox.propTypes = {
     checkboxStyle: PropTypes.oneOfType([PropTypes.array,PropTypes.object,PropTypes.number]),
     containerStyle: PropTypes.oneOfType([PropTypes.array,PropTypes.object,PropTypes.number]),
     checked: PropTypes.bool,
-    checkedImage: PropTypes.number,
-    uncheckedImage: PropTypes.number,
+    checkedImage: PropTypes.object,
+    uncheckedImage: PropTypes.object,
     underlayColor: PropTypes.string,
     onChange: PropTypes.func,
     hitSlop: PropTypes.object
