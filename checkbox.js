@@ -107,7 +107,7 @@ class CheckBox extends Component {
         }
 
         return (
-            <TouchableHighlight accessible={this.props.accessible} accessibilityLabel={this.props.accessibilityLabel} testID={this.props.testID} onPress={this.onChange} underlayColor={this.props.underlayColor} style={styles.flexContainer} checkbox={this.props.hitSlop}>
+            <TouchableHighlight accessible={this.props.accessible} accessibilityLabel={this.props.accessibilityLabel} testID={this.props.testID} onPress={this.onChange} underlayColor={this.props.underlayColor} style={[styles.flexContainer, this.props.style]} checkbox={this.props.hitSlop}>
                 {container}
             </TouchableHighlight>
         );
