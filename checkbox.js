@@ -41,7 +41,8 @@ class CheckBox extends Component {
             });
         }
     }
-    componentWillMount() {
+    
+    componentDidMount() {
         this.setState(this.baseState)
     }
 
